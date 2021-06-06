@@ -1,5 +1,13 @@
 package com.example.a2fasejuncao;
 
+import android.widget.Toast;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,23 +16,48 @@ public class DadosApp extends MainActivity {
 
     private List<Tarefas> listaPassos;
     private int posicao;
-
+    ArrayList<String> numberlist = new ArrayList<>();
 
 
     // singleton
     public DadosApp() {
 
-        listaPassos = new ArrayList<>();
-        listaPassos.add(new Tarefas("1. Passo --> Preparação de ingredientes"));
-        listaPassos.add(new Tarefas("2. Passo --> Mistura de ingredientes"));
-        listaPassos.add(new Tarefas("3. Passo --> Coloque o bolo no forno"));
-        listaPassos.add(new Tarefas("4. Passo --> Finalizar o bolo"));
-        posicao = 1;
-
+        get_json();
         }
 
 
+    public void get_json(){
 
+        String json;
+        try{
+            InputStream is = getAssets().open("JsonTest.txt");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+
+            json = new String(buffer, "UTF-8");
+            JSONArray jsonArray = new JSONArray(json);
+
+            for(int i = 0; i<jsonArray.length();i++){
+                JSONObject obj = jsonArray.getJSONObject(i);
+
+                if (i == 0 && obj.getString("Receita de bolo").
+                        equals("1")){
+                    listaPassos.add();
+                    numberlist.add(obj.getString
+                            ("1. Passo --> Preparação de ingredientes"));
+                    posicao = 1;
+                }
+
+            }
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+    }
 
 
     public String getTextoPassoReceita() {

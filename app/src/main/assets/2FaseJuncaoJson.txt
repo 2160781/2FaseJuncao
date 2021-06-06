@@ -1,0 +1,16 @@
+[
+	{
+		"Plano":"Receita de bolo",
+		"1":"1. Passo --> Preparação de ingredientes",
+        "2":"2. Passo --> Mistura de ingredientes",
+       	"3":"3. Passo --> Coloque o bolo no forno",
+        "4":"4. Passo --> Finalizar o bolo"
+	},
+	{
+		"Plano":"Plantação de trigo",
+		"1":"1. Passo --> Compra de terreno",
+		"2":"2. Passo --> Preparação de terreno",
+		"3":"3. Passo --> Plantar trigo",
+		"4":"4. Passo --> Obter colheita"
+	}
+]
