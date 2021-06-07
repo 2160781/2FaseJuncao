@@ -1,5 +1,6 @@
 package com.example.a2fasejuncao;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -22,23 +23,23 @@ public class Q_R_CODE extends AppCompatActivity implements ZXingScannerView.Resu
         setContentView(R.layout.activity_q__r__c_o_d_e);
     }
 
-    //metodo dos botoes
-    //public void anterior( View view)  {
-
-       // Intent anterior=new Intent(this,MainActivity.class);
-        //startActivity(anterior);
-
-    //}
-    //metodo dos botoes
 
     @Override
     public boolean dispatchKeyEvent( KeyEvent event) {
         int action = event.getAction();
         int keyCode = event.getKeyCode();
         switch (keyCode) {
-            case KeyEvent.KEYCODE_VOLUME_DOWN:
+            case KeyEvent.KEYCODE_DPAD_LEFT:
                 if (action == KeyEvent.ACTION_DOWN) {
-                    //TODO
+
+                    Intent siguiente = new Intent(this,
+                            MainActivity.class);
+                    startActivity(siguiente);
+
+                }
+                return true;
+            case KeyEvent.KEYCODE_DPAD_RIGHT:
+                if (action == KeyEvent.ACTION_DOWN) {
 
                         nScannerView= new ZXingScannerView( this );
                         setContentView( nScannerView );
@@ -48,26 +49,30 @@ public class Q_R_CODE extends AppCompatActivity implements ZXingScannerView.Resu
 
                 }
                 return true;
+            case KeyEvent.KEYCODE_ENTER:
+                if (action == KeyEvent.ACTION_DOWN) {
+
+                    Intent Plano = new Intent(this,
+                            Plano.class);
+                    startActivity(Plano);
+
+                }
+                return true;
             default:
                 return super.dispatchKeyEvent(event);
         }
     }
 
-
-
-
     @Override
     public void handleResult(Result result) {
 
-
         Log.v("ResultHandler",result.getText());
         AlertDialog.Builder builder=new AlertDialog.Builder(this);
-        builder.setTitle( "Resultado del scan" );
+        builder.setTitle( "Resultado do scan" );
         builder.setMessage( result.getText() );
         AlertDialog alertDialog=builder.create();
         alertDialog.show();
         nScannerView.resumeCameraPreview( this );
-
 
     }
 

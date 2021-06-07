@@ -16,6 +16,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".AtivaRechonecimentoVoz">
+
+        </activity>
+        <activity android:name=".Q_R_CODE">
+
+        </activity>
     </application>
 
 </manifest>

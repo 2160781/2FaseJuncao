@@ -14,7 +14,7 @@ import java.util.List;
 
 public class DadosApp extends MainActivity {
 
-    private List<Tarefas> listaPassos;
+    private List<Boolean> listaPassos;
     private int posicao;
     ArrayList<String> numberlist = new ArrayList<>();
 
@@ -44,9 +44,11 @@ public class DadosApp extends MainActivity {
 
                 if (i == 0 && obj.getString("Receita de bolo").
                         equals("1")){
-                    listaPassos.add();
-                    numberlist.add(obj.getString
-                            ("1. Passo --> Preparação de ingredientes"));
+                    for(int b = 0; b < obj.getString("Receita de bolo").length(); i++){
+                        listaPassos.add(obj.getString("Receita de bolo").equals(b));
+                    }
+                 /*   numberlist.add(obj.getString
+                            ("1. Passo --> Preparação de ingredientes"));*/
                     posicao = 1;
                 }
 
@@ -62,7 +64,7 @@ public class DadosApp extends MainActivity {
 
     public String getTextoPassoReceita() {
 
-        return listaPassos.get(posicao - 1).getTexto();
+        return listaPassos.get(posicao - 1).toString();
     }
 
     public void avancar() {
@@ -82,9 +84,9 @@ public class DadosApp extends MainActivity {
     public int getSizeListaPassos()  {
         return listaPassos.size();
     }
-
+/*
         public void marcarFeito() {
         listaPassos.get(posicao - 1).setFeito(true);
-    }
+    }*/
 
 }
