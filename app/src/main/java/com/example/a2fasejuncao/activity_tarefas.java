@@ -56,6 +56,10 @@ public class activity_tarefas extends AppCompatActivity {
 
                 if (position == 1) {
                     positionTarefa = 1;
+                    dadosApp = new DadosApp();
+                    Intent Tarefa2 = new Intent(view.getContext(),
+                            Plano.class);
+                    startActivity(Tarefa2);
 
 
                 }

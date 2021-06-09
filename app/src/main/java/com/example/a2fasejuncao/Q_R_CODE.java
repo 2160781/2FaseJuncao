@@ -49,15 +49,7 @@ public class Q_R_CODE extends AppCompatActivity implements ZXingScannerView.Resu
 
                 }
                 return true;
-            case KeyEvent.KEYCODE_ENTER:
-                if (action == KeyEvent.ACTION_DOWN) {
 
-                    Intent Plano = new Intent(this,
-                            Plano.class);
-                    startActivity(Plano);
-
-                }
-                return true;
             default:
                 return super.dispatchKeyEvent(event);
         }
