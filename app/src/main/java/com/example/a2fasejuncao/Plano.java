@@ -45,6 +45,7 @@ public class Plano extends AppCompatActivity {
         int keyCode = event.getKeyCode();
         switch (keyCode) {
             case KeyEvent.KEYCODE_VOLUME_UP:
+
                 if (action == KeyEvent.ACTION_DOWN) {
 
 

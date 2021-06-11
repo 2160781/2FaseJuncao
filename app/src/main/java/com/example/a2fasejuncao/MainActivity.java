@@ -15,7 +15,9 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    private DadosApp dadosApp;
+    private int positionTarefa;
+    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,10 +44,8 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case KeyEvent.KEYCODE_ENTER:
                 if (action == KeyEvent.ACTION_DOWN) {
-
-                    Intent Plano = new Intent(this,
-                            activity_tarefas.class);
-                    startActivity(Plano);
+                    setContentView(R.layout.activity_listview);
+                    listviewTarefas();
 
                 }
                 return true;
@@ -53,6 +53,53 @@ public class MainActivity extends AppCompatActivity {
             default:
                 return super.dispatchKeyEvent(event);
         }
+    }
+    public boolean listviewTarefas(){
+
+        listView = findViewById(R.id.listview);
+
+        String[] values = new String[] {
+                "1. Receita de bolo " , "2. Plantação de trigo", "3. Voltar para a Main"
+        };
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_list_item_1,
+                android.R.id.text1,values);
+
+        listView.setAdapter(adapter);
+
+
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                if(position == 0){
+                    positionTarefa = 0;
+                    dadosApp = new DadosApp();
+                 /*   Intent Tarefa1 = new Intent(view.getContext(),
+                            Plano.class);
+                    startActivity(Tarefa1);*/
+                }
+
+                if (position == 1) {
+                    positionTarefa = 1;
+                    dadosApp = new DadosApp();
+                 /*   Intent Tarefa2 = new Intent(view.getContext(),
+                            Plano.class);
+                    startActivity(Tarefa2);*/
+
+
+                }
+
+                if(position == 2){
+                    positionTarefa = 2;
+                /*    Intent inicio = new Intent(view.getContext(),MainActivity.class);
+                    startActivity(inicio);*/
+                }
+            }
+        });
+        return true;
     }
 
 }
