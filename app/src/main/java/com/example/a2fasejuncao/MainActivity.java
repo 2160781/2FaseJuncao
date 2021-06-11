@@ -77,18 +77,17 @@ public class MainActivity extends AppCompatActivity {
                 if(position == 0){
                     positionTarefa = 0;
                     dadosApp = new DadosApp();
-                 /*   Intent Tarefa1 = new Intent(view.getContext(),
-                            Plano.class);
-                    startActivity(Tarefa1);*/
+                Intent Tarefa1 = new Intent(view.getContext(),
+                            activity_tarefas.class);
+                    startActivity(Tarefa1);
                 }
 
                 if (position == 1) {
                     positionTarefa = 1;
                     dadosApp = new DadosApp();
-                 /*   Intent Tarefa2 = new Intent(view.getContext(),
-                            Plano.class);
-                    startActivity(Tarefa2);*/
-
+                  Intent Tarefa2 = new Intent(view.getContext(),
+                            activity_tarefas.class);
+                    startActivity(Tarefa2);
 
                 }
 
